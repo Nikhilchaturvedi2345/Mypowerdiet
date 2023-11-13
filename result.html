@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TAILWIND  -->
+    <link rel="stylesheet" href="tailwind.css" />
+    <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href="customcss/all.css" />
+    <!-- FAVICON  -->
+    <link rel="icon" href="/favicon_io/favicon-32x32.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <title>Result</title>
+  </head>
+  <script
+    src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js"
+    defer
+  ></script>
+  <style>
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+      -ms-overflow-style: none; /* IE and Edge */
+      /* scrollbar-width: none; Firefox */
+    }
+  </style>
+  <body class="unselectable">
+    <!-- PRELOADER  -->
+    <div id="preloader">
+      <img src="./images/hasher-drinks-stickers.gif" alt="preloader (My Power Diet)" >  
+    </div>
+
+
+    <main class="flex flex-wrap" id="tabs-id">
+      <div class="w-full">
+        <!-- SLIDEBAR HORIZONTAL NAVIGATION BAR START  -->
+        <ul
+          class="flex mb-0 list-none overflow-auto scrollbar-hide pt-3 pb- flex-row"
+          id="top_Navigation"
+        >
+          <li class="-mb-px mx-2 last:mr-0 flex-auto text-center">
+            <a
+              class="text-xs font-bold uppercase px-7 py-3 shadow-lg rounded block leading-normal text-white bg-purple-600"
+              onclick="changeAtiveTab(event,'tab-allmeal')"
+            >
+              <i class="fas fa-cog text-base mr-1"></i>
+              All
+            </a>
+          </li>
+        </ul>
+        <!-- SLIDEBAR HORIZONTAL NAVIGATION BAR END  -->
+
+        <section
+          class="relative flex flex-col min-w-0 break-words bg-slate-100 w-full mb-6 shadow-lg rounded"
+        >
+          <div class="py-2 flex-auto">
+            <div class="tab-content tab-space" id="content_box">
+              <div class="block" id="tab-allmeal">
+                <!-- Calories Rounded bar Start-->
+                <div class="py-4 px-3 bg-gray-100">
+                  <div class="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-10">
+                    <div
+                      class="flex items-center flex-wrap max-w-md px-10 bg-white shadow-lg rounded-2xl h-32"
+                      x-data="{ circumference: 35 * 2 * Math.PI, percent: 80 }"
+                    >
+                      <div
+                        class="flex items-center justify-center -m-6 overflow-hidden bg-white rounded-full"
+                      >
+                        <svg
+                          class="w-24 h-24 transform translate-x-0 translate-y-0"
+                          x-cloak
+                          aria-hidden="true"
+                        >
+                          <circle
+                            class="text-gray-300"
+                            stroke-width="7"
+                            stroke="currentColor"
+                            fill="transparent"
+                            r="35"
+                            cx="50"
+                            cy="50"
+                          />
+                          <circle
+                            class="text-purple-700"
+                            stroke-width="7"
+                            :stroke-dasharray="circumference"
+                            :stroke-dashoffset="circumference - percent / 100 * circumference"
+                            stroke-linecap="round"
+                            stroke="currentColor"
+                            fill="transparent"
+                            r="35"
+                            cx="50"
+                            cy="50"
+                          />
+                        </svg>
+                        <span
+                          class="absolute text-xl text-purple-700 pt-2 pl-1"
+                          x-text="`${percent}%`"
+                        ></span>
+                      </div>
+                      <div>
+                        <p class="ml-10 font-medium text-gray-600 sm:text-xl">
+                          Calories
+                        </p>
+                        <p
+                          class="ml-10 text-xl font-medium text-purple-600 sm:block"
+                        >
+                          567/758
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Calories Rounded bar Ends -->
+
+                <!-- Component Start -->
+                <div
+                  class="flex justify-center content-center items-center px-3 bg-slate-100"
+                >
+                  <div
+                    class="bg-white p-8 shadow-lg shadow-slate-200 rounded-2xl w-full md:w-2/3 lg:w-1/3"
+                  >
+                    <h2 class="text-xl font-bold pb-7">Today's Insight</h2>
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-400 text-md" id="Allresultprotein">Protein 26/45g</span>
+                      <span
+                        class="px-2 py-1 bg-purple-100 rounded-lg text-xs text-purple-500 font-medium min-w-[46px] text-center" id="proteinpercentage"
+                        >0%</span
+                      >
+                    </div>
+
+                    <div class="w-full bg-slate-100 h-1 mb-6 mt-2">
+                      <div
+                        class="bg-blue-600 h-1 rounded w-16"
+                        id="proteinbarwidth"
+                      ></div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-400 text-md" id="Allresultfat">Fat 35/80g</span>
+                      <span
+                        class="px-2 py-1 bg-purple-100 rounded-lg text-xs text-purple-500 font-medium min-w-[46px] text-center" id="fatpercentage"
+                        >25%</span
+                      >
+                    </div>
+
+                    <div class="w-full bg-slate-100 h-1 mb-6 mt-2">
+                      <div
+                        class="bg-yellow-600 h-1 rounded"
+                        id="fatbarwidth"
+                      ></div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                      <span class="text-slate-400 text-md" id="Allresultcarb"
+                        >Carbohydrate 745/900g</span
+                      >
+                      <span
+                        class="px-2 py-1 bg-purple-100 rounded-lg text-xs text-purple-500 font-medium min-w-[46px] text-center" id="carbpercentage"
+                        >50%</span
+                      >
+                    </div>
+
+                    <div class="w-full bg-slate-100 h-1 mb-6 mt-2">
+                      <div
+                        class="bg-green-600 h-1 rounded"
+                        id="carbbarwidth"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Component End  -->
+
+                <!-- Micronutrients bars Start -->
+                <div class="mx-auto my-2 px-3 w-full">
+                  <!-- The First FAQ -->
+                  <details class="bg-white rounded-xl duration-300 shadow-md">
+                    <summary
+                      class="bg-inherit px-7 py-3 text-lg  cursor-pointer font-semibold  text-blue-500"
+                      style="color: rgb(162, 95, 23);"
+                      >
+                        Micronutrients 
+                        <span class="float-right ">
+                          <img
+                            src="./images/apple.png"
+                            width="25px"
+                            height="25px"
+                            alt="logo"
+                          />
+                        </span>
+                    </summary>
+                    <div
+                      class="bg-white px-5 py-3 border-t border-gray-300 text-sm font-light rounded-b-xl"
+                    >
+                      <div
+                        class="flex justify-center content-center items-center px-1"
+                      >
+                        <div
+                          class="bg-white rounded-2xl w-full md:w-2/3 lg:w-1/3 flex justify-between flex-wrap" id="displaymicronutrients"
+                        >
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <!-- Micronutrients bars END -->
+
+                <!-- Microvitamins bars Start -->
+                <div class="mx-auto px-3 w-full">
+                  <!-- The First FAQ -->
+                  <details
+                    class="bg-white rounded-xl duration-300 mb-10 shadow-md"
+                  >
+                    <summary
+                      class="bg-inherit px-7 py-3 text-lg text-blue-500 cursor-pointer font-semibold"
+                      style="color: #c9c442;"
+                    >
+                      Microvitamins
+                      <span class="float-right ">
+                        <img
+                          src="./images/lemon.png"
+                          width="25px"
+                          height="25px"
+                          alt="logo"
+                        />
+                      </span>
+                    </summary>
+                    <div
+                      class="bg-white px-5 py-3 border-t border-gray-300 text-sm font-light rounded-b-xl"
+                    >
+                      <div
+                        class="flex justify-center content-center items-center px-1"
+                      >
+                        <div
+                          class="bg-white rounded-2xl w-full md:w-2/3 lg:w-1/3 flex justify-between flex-wrap" id="displaymicrovitamins"
+                        >
+
+                        </div>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <!-- Micronutrients bars END -->
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+  <script type="text/javascript" src="./js/result.js"></script>
+  <script type="text/javascript" src="./js/allresult.js"></script>
+</html>

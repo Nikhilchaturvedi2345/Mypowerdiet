@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TAILWIND  -->
+    <link rel="stylesheet" href="tailwind.css" />
+    <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href="customcss/all.css" />
+    <!-- FONT AWESOME CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- FAVICON  -->
+    <link rel="icon" href="/favicon_io/favicon-32x32.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <title>Meals</title>
+  </head>
+  <style>
+    .disapear{
+      animation-name: animate;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-delay: 10s;
+      animation-fill-mode: forwards;
+      transition-property: all;
+      transition-duration: 1s;
+      transition-timing-function: ease-in-out;
+    }
+    @keyframes animate {
+
+     100%{
+      opacity: 0;
+      display: none;
+     }
+    }
+  </style>
+
+  <body class="bg-slate-50 unselectable">
+    <!-- PRELOADER  -->
+    <div id="preloader">
+      <img src="./images/hasher-drinks-stickers.gif" alt="Pre-loader (My Power Diet)" >  
+    </div>
+    
+    <!-- TOP NAVIGATION BAR START  -->
+    <header class="flex bg-cyan-900 p-2 text-black items-center">
+      <div>
+        <i class="fa-solid fa-arrow-left  text-lg ps-2" style="color: #ffffff;" onclick="history.back()"></i>
+
+        <a
+        title="Go back to all added Material page"
+          href="show_all_material.html"
+          class="text-white active:text-red-600 mx-3"
+          ><i class="fa-solid fa-utensils hover:text-red-600"></i
+        ></a>
+      </div>
+      <div
+        class="text-lg text-white baloobhai"
+      >
+        Meals -
+      </div>
+    </header>
+    <!-- TOP NAVIGATION BAR ENDS  -->
+
+    <main>
+      <!-- NEW MEALS WERE ADDED HERE.  -->
+      <section id="addmealtimehere"></section>
+
+      <!-- SHOWS WHEN NO MEAL ITEMS WERE AVAILABLE  -->
+      <section id="nomealtimetillnow">
+        <div
+          class="flex justify-center items-center flex-col bg-white rounded-lg border-2 text-lg m-4 text-black shadow-md"
+        >
+          <img src="./images/nomeal.png" alt="No Meal items available" class="w-40 h-40" />
+          <h2
+            class="my-2 text-center px-4 baloobhai"
+          >
+            No Meal Time available ! <br />
+            Add Your First Meal Time Now
+          </h2>
+          <span
+            onclick="showmealtimefillform()"
+            class="py-2 h-12 px-3 mb-4 mt-3 border-2 border-cyan-600 text-cyan-700 hover:border-none hover:text-white rounded hover:bg-cyan-700 hover:text-md"
+          >
+            <a href="#addmealtimeformsection" title="Add New Meal Time">Add Meal Time</a>
+          </span>
+        </div>
+      </section>
+
+      <!-- FORM START - ADD MORE MEALS  -->
+      <section id="addmoremeal" class="hidden">
+        <div
+          onclick="showmealtimefillform()"
+          class="py-4 rounded mx-4 mt-4 font-semibold text-blue-500 border-s-4 ps-4 underline bg-white shadow-md underline-offset-2 border-cyan-600"
+        >
+          <a href="#addmealtimeformsection" title="Add More Meal Time">Add More Meal Time-</a>
+        </div>
+      </section>
+      <!-- FORM END - ADD MORE MEALS  -->
+
+      <!-- FORM START - ADD FIRST MEAL -->
+      <section id="addmealtimeformsection" class="hidden">
+          <div
+            class="mx-3 my-3 rounded bg-white shadow-md font-semibold flex flex-col p-5"
+          >
+            <div class="flex justify-between">
+              <label for="MealtimeName" class="py-2">Name :</label>
+              <div>
+                <button
+                  type="submit"
+                  id="addmealtimesubmit"
+                  onclick="mealtimeformsubmited()"
+                  class="px-4 py-2 bg-green-700 text-white hover:bg-green-900 active:bg-green-900"
+                >
+                  Plus
+                </button>
+                <button class="border-2 border-slate-400 w-10 h-10 text-lg">
+                  <a onclick="closemealtimeform()" title="close Add meal form"
+                    ><i class="fa-solid fa-xmark" style="color: #4f4f4f"></i
+                  ></a>
+                </button>
+              </div>
+            </div>
+            <input
+              type="text"
+              name="MealtimeName"
+              id="MealtimeName"
+              class="outline-none border-b-2 border-green-400 border-solid py-2 ps-2"
+            />
+          </div>
+      </section>
+      <!-- FORM END - ADD FIRST MEALS  -->
+
+      <!-- FORM START - EDIT MEAL ITEM IN MEAL LIST  -->
+      <section
+        class="w-screen h-screen absolute inset-0 justify-center items-center hidden z-50"
+        style="background: #00000023"
+        id="editmealtimesection"
+      >
+        <div class="bg-white shadow-md p-5 w-full mx-4 h-fit">
+         <a onclick="closesearchform()" title="close edit meal form"> <i class="fa-solid fa-xmark float-right" style="color: #8f8f8f;"></i></a>
+          <input
+            type="text"
+            id="searchmealitem"
+            placeholder="Search"
+            class="outline-none border-b-2 border-green-400 border-solid py-2 w-full ps-2"
+          />
+          <ul
+            id="allitemlist"
+            class="my-3 h-56 overflow-auto baloobhai"
+          >
+          </ul>
+          <button
+            onclick="additemlisttomeal()"
+            class="py-2 px-3 w-full bg-cyan-500 rounded text-white"
+          >
+            Add
+          </button>
+        </div>
+      </section>
+      <!-- FORM START - EDIT MEAL ITEM IN MEAL LIST  -->
+
+      <!-- IMPORTANT INFORMATION SECTION START  -->
+      <section class="relative z-0 border-2 border-yellow-600 text-amber-900 bg-amber-200 mx-3 my-3 p-4 border-l-4 disapear">
+        <a onclick="this.parentElement.classList.add('hidden')" title="Hide additional information"> <i class="fa-solid fa-xmark float-right" style="color: #8f8f8f;"></i></a>
+        NOTE : Please refresh page if any food item were deleted by any meal.
+      </section>
+      <!-- IMPORTANT INFORMATION SECTION END  -->
+
+    </main>
+    <script>
+      window.onload = ()=>{
+        document.getElementById("preloader").style.display = "none";
+      }
+    </script>
+  </body>
+  <script src="./js/meal.js"></script>
+
+</html>

@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TAILWIND  -->
+    <link rel="stylesheet" href="tailwind.css" />
+    <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href="customcss/all.css" />
+    <!-- FONT AWESOME  -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    <!-- FAVICONS  -->
+    <link rel="icon" href="/favicon_io/favicon-32x32.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <title>Material</title>
+  </head>
+  <body class="unselectable">
+    
+    <!-- PRELOADER  -->
+    <div id="preloader">
+      <img src="./images/hasher-drinks-stickers.gif" alt="preloader gif" >  
+    </div>
+
+    <div
+      id="editboxhere"
+      class="absolute overflow-auto inset-0 border-2 shadow-lg rounded-md bg-white box-border"
+    >
+      <div
+        class="bg-white w-10 h-10 font-bold fixed top-0 right-1 rounded-full text-2xl text-center pt-1"
+      >
+        <a onclick="closeform()"
+          ><i class="fa-regular fa-circle-xmark" style="color: #ff0505"></i
+        ></a>
+      </div>
+
+      <iframe name="dummyframe" id="dummyframe" class="hidden" title="dummyframe"></iframe>
+      <form
+        action="?"
+        method="post"
+        onsubmit="submiteditedform()"
+        target="dummyframe"
+        id="productform"
+        class="bg-slate-50"
+      >
+        <div
+          style="
+            background: url('https://simplehealthfacts.com/media/2021/07/44-healthy-foods-to-eat-that-you-should-include-in-your-diet.jpg')
+              no-repeat;
+            background-size: cover;
+          "
+          class="w-100 h-40 flex justify-center align-middle items-center bg-cover"
+        ></div>
+        <div id="main_ingrediants" class="flex flex-col w-full p-5">
+          <label for="Product_Name" class="font-bold">Product Name :-</label>
+          <input
+            type="text"
+            name="Product_Name"
+            id="Product_Name"
+            required
+            class="outline-none border-b-2 border-red-400 border-solid py-2 ps-2"
+          />
+        </div>
+        <div class="flex" id="main_ingrediants">
+          <div class="flex flex-col w-1/2 p-5">
+            <label for="Product_Quantity" class="font-bold">Quantity</label>
+            <input
+              type="number"
+              name="Product_Quantity"
+              id="Product_Quantity"
+              step="0.01"
+              required
+              placeholder="0"
+              class="outline-none border-b-2 border-red-400 border-solid py-2 px-1"
+            />
+          </div>
+          <div class="flex flex-col w-1/2 p-5">
+            <label for="Product_Unit" class="font-bold">Unit</label>
+            <div
+              class="custom-select border-b-2 border-red-400 border-solid py-2 bg-white text-center"
+            >
+              <select
+                name="Product_Unit"
+                id="Product_Unit"
+                required
+                class="outline-none"
+              >
+                <option value="Grams">Grams</option>
+                <option value="Grams">Grams</option>
+                <option value="PerPiece">Per Piece</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <section>
+          <div class="text-black flex justify-between p-5">
+            <h1 class="font-medium w-6/12">Protein</h1>
+            <p>-</p>
+            <input
+              type="number"
+              name="Protein_Quantity"
+              id="Protein_Quantity"
+              step="0.01"
+              required
+              placeholder="0"
+              class="outline-none border-b-2 border-red-400 border-solid w-1/3 px-1 text-center"
+            />
+            <p>g</p>
+          </div>
+          <div class="text-black flex justify-between p-5">
+            <h1 class="font-medium w-6/12">Carbohydrates</h1>
+            <p>-</p>
+            <input
+              type="number"
+              name="Carb_Quantity"
+              id="Carb_Quantity"
+              step="0.01"
+              required
+              placeholder="0"
+              class="outline-none border-b-2 border-red-400 border-solid w-1/3 px-1 text-center"
+            />
+            <p>g</p>
+          </div>
+          <div class="text-black flex justify-between p-5">
+            <h1 class="font-medium w-6/12">Fats</h1>
+            <p>-</p>
+            <input
+              type="number"
+              name="Fat_Quantity"
+              id="Fat_Quantity"
+              step="0.01"
+              required
+              placeholder="0"
+              class="outline-none border-b-2 border-red-400 border-solid w-1/3 px-1 text-center"
+            />
+            <p>g</p>
+          </div>
+          <div class="text-black flex justify-between p-5">
+            <h1 class="font-medium w-6/12">Fibre</h1>
+            <p>-</p>
+            <input
+              type="number"
+              name="Fibre_Quantity"
+              id="Fibre_Quantity"
+              step="0.01"
+              required
+              placeholder="0"
+              class="outline-none border-b-2 border-red-400 border-solid w-1/3 px-1 text-center"
+            />
+            <p>g</p>
+          </div>
+          <hr />
+        </section>
+        <section class="pb-4">
+          <h1
+            class="font-semibold px-5 py-3 rounded text-lg bg-green-600 text-white mx-1"
+          >
+            Vitamins :-
+          </h1>
+
+          <!-- Biotin -->
+
+          <div class="flex justify-between w-full p-5" id="Biotin_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">Biotin -</h2>
+            <input
+              type="number"
+              name="vit1"
+              id="vit1"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit1_unit"
+                id="vit1_Unit"
+                required
+                class="outline-none"
+                title="vitamin1 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Folate -->
+
+          <div class="flex justify-between w-full p-5" id="Folate_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">Folate -</h2>
+            <input
+              type="number"
+              name="vit2"
+              id="vit2"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit2_unit"
+                id="vit2_Unit"
+                required
+                class="outline-none"
+                title="vitamin2 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin A -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminA_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">Vitamin A -</h2>
+            <input
+              type="number"
+              name="vit3"
+              id="vit3"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit3_unit"
+                id="vit3_Unit"
+                required
+                class="outline-none"
+                title="vitamin3 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin B1 -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminB1_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin B1 (thiamin) -
+            </h2>
+            <input
+              type="number"
+              name="vit4"
+              id="vit4"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit4_unit"
+                id="vit4_Unit"
+                required
+                class="outline-none"
+                title="vitamin4 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin B2 -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminB2_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin B2 (riboflavin) -
+            </h2>
+            <input
+              type="number"
+              name="vit5"
+              id="vit5"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit5_unit"
+                id="vit5_Unit"
+                required
+                class="outline-none"
+                title="vitamin5 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin B3 -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminB3_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin B3 (niacin) -
+            </h2>
+            <input
+              type="number"
+              name="vit6"
+              id="vit6"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit6_unit"
+                id="vit6_Unit"
+                required
+                class="outline-none"
+                title="vitamin6 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin B5 -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminB5_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin B5 (patothenic acid) -
+            </h2>
+            <input
+              type="number"
+              name="vit7"
+              id="vit7"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit7_unit"
+                id="vit7_Unit"
+                required
+                class="outline-none"
+                title="vitamin7 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin B6 -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminB6_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin B6 (pyridoxine) -
+            </h2>
+            <input
+              type="number"
+              name="vit8"
+              id="vit8"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit8_unit"
+                id="vit8_Unit"
+                required
+                class="outline-none"
+                title="vitamin8 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin B12 -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminB12_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin B12 (cobalamine) -
+            </h2>
+            <input
+              type="number"
+              name="vit9"
+              id="vit9"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit9_unit"
+                id="vit9_Unit"
+                required
+                class="outline-none"
+                title="vitamin9 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin C -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminC_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin C (ascorbic acid) -
+            </h2>
+            <input
+              type="number"
+              name="vit10"
+              id="vit10"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit10_unit"
+                id="vit10_Unit"
+                required
+                class="outline-none"
+                title="vitamin10 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin D -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminD_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin D (cholecalciferol) -
+            </h2>
+            <input
+              type="number"
+              name="vit11"
+              id="vit11"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit11_unit"
+                id="vit11_Unit"
+                required
+                class="outline-none"
+                title="vitamin11 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin E -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminE_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">
+              Vitamin E (tocopherol) -
+            </h2>
+            <input
+              type="number"
+              name="vit12"
+              id="vit12"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit12_unit"
+                id="vit12_Unit"
+                required
+                class="outline-none"
+                title="vitamin12 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vitamin K -->
+
+          <div class="flex justify-between w-full p-5" id="VitaminK_vit">
+            <h2 class="font-semibold relative top-2 w-6/12">Vitamin K -</h2>
+            <input
+              type="number"
+              name="vit13"
+              id="vit13"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-y-2 border-red-400 border-solid w-3/12 text-center"
+            />
+            <div
+              class="custom-select border-y-2 border-red-400 border-solid w-2/12 bg-white py-2"
+            >
+              <select
+                name="vit13_unit"
+                id="vit13_Unit"
+                required
+                class="outline-none"
+                title="vitamin13 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <hr />
+        </section>
+        <section>
+          <h1
+            class="font-semibold px-5 py-3 rounded text-lg bg-purple-700 text-white mx-1"
+          >
+            Minerals :-
+          </h1>
+
+          <!-- Boron Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Boron_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Boron -</h2>
+            <input
+              type="number"
+              name="min1"
+              id="min1"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min1_unit"
+                id="min1_Unit"
+                required
+                class="outline-none"
+                title="mineral unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Calcium Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Calcium_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Calcium -</h2>
+            <input
+              type="number"
+              name="min2"
+              id="min2"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min2_unit"
+                id="min2_Unit"
+                required
+                class="outline-none"
+                title="mineral2 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Chlorine Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Chlorine_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Chlorine -</h2>
+            <input
+              type="number"
+              name="min3"
+              id="min3"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min3_unit"
+                id="min3_Unit"
+                required
+                class="outline-none"
+                title="mineral3 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Chromium Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Chromium_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Chromium -</h2>
+            <input
+              type="number"
+              name="min4"
+              id="min4"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min4_unit"
+                id="min4_Unit"
+                required
+                class="outline-none"
+                title="mineral4 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Copper Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Copper_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Copper -</h2>
+            <input
+              type="number"
+              name="min5"
+              id="min5"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min5_unit"
+                id="min5_Unit"
+                required
+                class="outline-none"
+                title="mineral5 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Fluorine Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Fluorine_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Fluorine -</h2>
+            <input
+              type="number"
+              name="min6"
+              id="min6"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min6_unit"
+                id="min6_Unit"
+                required
+                class="outline-none"
+                title="mineral6 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Iodine Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Iodine_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Iodine -</h2>
+            <input
+              type="number"
+              name="min7"
+              id="min7"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min7_unit"
+                id="min7_Unit"
+                required
+                class="outline-none"
+                title="mineral7 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Iron Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Iron_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Iron -</h2>
+            <input
+              type="number"
+              name="min8"
+              id="min8"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min8_unit"
+                id="min8_Unit"
+                required
+                class="outline-none"
+                title="mineral8 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Magnesium Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Magnesium_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Magnesium -</h2>
+            <input
+              type="number"
+              name="min9"
+              id="min9"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min9_unit"
+                id="min9_Unit"
+                required
+                class="outline-none"
+                title="mineral9 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Manganese Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Manganese_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Manganese -</h2>
+            <input
+              type="number"
+              name="min10"
+              id="min10"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min10_unit"
+                id="min10_Unit"
+                required
+                class="outline-none"
+                title="mineral10 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Molybdenum Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Molybdenum_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Molybdenum -</h2>
+            <input
+              type="number"
+              name="min11"
+              id="min11"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min11_unit"
+                id="min11_Unit"
+                required
+                class="outline-none"
+                title="mineral11 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Nickel Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Nickel_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Nickel -</h2>
+            <input
+              type="number"
+              name="min12"
+              id="min12"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min12_unit"
+                id="min12_Unit"
+                required
+                class="outline-none"
+                title="mineral12 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Phosphorus Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Phosphorus_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Phosphorus -</h2>
+            <input
+              type="number"
+              name="min13"
+              id="min13"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min13_unit"
+                id="min13_Unit"
+                required
+                class="outline-none"
+                title="mineral13 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Potassium Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Potassium_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Potassium -</h2>
+            <input
+              type="number"
+              name="min14"
+              id="min14"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min14_unit"
+                id="min14_Unit"
+                required
+                class="outline-none"
+                title="mineral14 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Selenium Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Selenium_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Selenium -</h2>
+            <input
+              type="number"
+              name="min15"
+              id="min15"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min15_unit"
+                id="min15_Unit"
+                required
+                class="outline-none"
+                title="mineral15 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Sodium Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Sodium_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Sodium -</h2>
+            <input
+              type="number"
+              name="min16"
+              id="min16"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min16_unit"
+                id="min16_Unit"
+                required
+                class="outline-none"
+                title="mineral17 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Vanadium Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Vanadium_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Vanadium -</h2>
+            <input
+              type="number"
+              name="min17"
+              id="min17"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min17_unit"
+                id="min17_Unit"
+                required
+                class="outline-none"
+                title="mineral18 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Zinc Mineral  -->
+
+          <div class="flex justify-between w-full p-5" id="Zinc_min">
+            <h2 class="font-semibold relative top-2 w-6/12">Zinc -</h2>
+            <input
+              type="number"
+              name="min18"
+              id="min18"
+              step="0.01"
+              value="0"
+              placeholder="0"
+              class="outline-none border-2 border-purple-400 border-solid w-3/12 text-center mx-1 text-purple-500"
+            />
+            <div
+              class="custom-select border-2 border-purple-400 border-solid w-3/12 mx-1 px-1"
+            >
+              <select
+                name="min18_unit"
+                id="min18_Unit"
+                required
+                class="outline-none"
+                 title="mineral18 unit"
+              >
+                <option value="µg">mcg</option>
+                <option value="µg">mcg</option>
+                <option value="mg">mg</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADD BUTTON  -->
+        <div>
+          <button
+            type="submit"
+            id="addnewbtn"
+            class="w-full relative bottom-0 py-3 bg-red-600 flex justify-center align-middle items-center text-white"
+          >
+            <i class="fa-solid fa-plus" style="color: #ffffff"></i> Add
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- PRELOADER SCRIPT  -->
+    <script>
+      window.onload = ()=>{
+        document.getElementById("preloader").style.display = "none";
+      }
+    </script>
+  </body>
+  <script src="js/editdata.js"></script>
+  <!-- <script src="js/show_all_material.js"></script> -->
+</html>

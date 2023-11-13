@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TAILWIND CSS  -->
+    <link rel="stylesheet" href="tailwind.css" />
+    <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href="customcss/all.css" />
+    <!-- FONT AWESOME CDN  -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    <!-- FAVICONS  -->
+    <link rel="icon" href="/favicon_io/favicon-32x32.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <title>Daily Intake</title>
+  </head>
+  <body class="bg-slate-50 unselectable">
+    
+    <!-- PRELOADER  -->
+    <div id="preloader">
+      <img src="./images/hasher-drinks-stickers.gif" alt="" >  
+    </div>
+    <!-- TOP INTRO SECTION STARTS  -->
+    <section
+      class="flex h-44 justify-evenly items-center relative bg-gradient-to-l from-orange-300 to-orange-800 shadow-lg m-2 rounded-md text-white ps-2 z-0 baloobhai"
+    >
+    <!-- BACK BUTTON  -->
+      <i
+        class="fa-solid fa-arrow-left absolute top-4 text-lg left-5 text-white"
+        onclick="history.back()"
+      ></i>
+      <!-- HEADING AND CURRENT TIME STATUS  -->
+      <div class="flex justify-evenly py-4 h-full flex-col">
+        <h1 class="text-xl font-semibold">Daily Intakes</h1>
+        <span class="text-md">
+          <span id="showhour" class="border-4 rounded-lg p-1"></span> :
+          <span id="showmin" class="border-4 rounded-lg p-1"></span> :
+          <span id="showsec" class="border-4 rounded-lg p-1"></span> :
+          <span id="showtimezone" class="border-4 rounded-lg p-1"></span>
+        </span>
+      </div>
+      <img
+        src="./images/undraw_refreshing_beverage_td3r.svg"
+        alt=""
+        class="w-24"
+      />
+    </section>
+    <!-- TOP INTRO SECTION ENDS  -->
+
+    <!-- DISPLAY USER INPUTS DATA SECTION START  -->
+    <section
+      class="flex justify-evenly bg-white shadow-lg z-50 relative rounded-lg my-4 mx-2 py-6 text-orange-500"
+    >
+      <div class="flex flex-col w-16 text-center space-y-2 text-xl">
+        <div id="pro" class="rounded-full shadow-lg h-16 text-center pt-5 w-16">
+          32
+        </div>
+        <div class="">Prot</div>
+      </div>
+      <div class="flex flex-col w-16 text-center space-y-2 text-xl">
+        <div id="fat" class="rounded-full shadow-lg h-16 text-center pt-5 w-16">
+          32
+        </div>
+        <div class="">Fat</div>
+      </div>
+      <div class="flex flex-col w-16 text-center space-y-2 text-xl">
+        <div
+          id="carb"
+          class="rounded-full shadow-lg h-16 text-center pt-5 w-16"
+        >
+          32
+        </div>
+        <div class="">Carb</div>
+      </div>
+      <div class="flex flex-col w-16 text-center space-y-2 text-xl">
+        <div id="cal" class="rounded-full shadow-lg h-16 text-center pt-5 w-16">
+          32
+        </div>
+        <div class="">Cal</div>
+      </div>
+    </section>
+    <!-- DISPLAY USER INPUTS DATA SECTION ENDS  -->
+
+    <!-- SET , EDIT DAILY INTAKES FORM START  -->
+    <section
+      class="mx-2 rounded-lg shadow-lg bg-white text-lg py-4 space-y-3 baloobhai"
+    >
+      <div class="flex justify-around items-center">
+        <label for="setdailyintakeprotein" class="w-32"
+          ><li>Set Protein</li></label
+        >
+        <input
+          type="number"
+          id="setdailyintakeprotein"
+          class="outline-none border-2 h-10 w-16 border-red-900 border-solid py-1 text-center"
+        />
+      </div>
+      <div class="flex justify-around items-center">
+        <label for="setdailyintakecarb" class="w-32"><li>Set Carb</li></label>
+        <input
+          type="number"
+          id="setdailyintakecarb"
+          class="outline-none border-2 h-10 w-16 border-red-900 border-solid py-1 text-center"
+        />
+      </div>
+      <div class="flex justify-around items-center">
+        <label for="setdailyintakefat" class="w-32"><li>Set Fat</li></label>
+        <input
+          type="number"
+          id="setdailyintakefat"
+          class="outline-none border-2 h-10 w-16 border-red-900 border-solid py-1 text-center"
+        />
+      </div>
+      <div class="flex justify-around items-center">
+        <label for="setdailyintakecalories" class="w-32"
+          ><li>Set Calories</li></label
+        >
+        <input
+          type="number"
+          id="setdailyintakecalories"
+          class="outline-none border-2 h-10 w-16 border-red-900 border-solid py-1 text-center"
+        />
+      </div>
+      <button
+        onclick="setdailyprotein()"
+        class="text-white bg-gradient-to-tr from-orange-900 to-orange-600 px-4 py-2 rounded-md mt-7 w-full"
+      >
+        Set
+      </button>
+    </section>
+    <!-- SET , EDIT DAILY INTAKES FORM ENDS  -->
+
+  </body>
+
+  <script src="js/dailyintake.js"></script>
+</html>

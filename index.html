@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Power Diet</title>
+    <!-- TAILWIND CSS  -->
+    <link rel="stylesheet" href="tailwind.css" />
+    <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href="customcss/all.css" />
+    <!-- FAVICONS -->
+    <link rel="icon" href="/favicon_io/favicon-32x32.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- FONT AWESOME CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-slate-100 unselectable">
+    <!-- PRELOADER  -->
+    <div id="preloader">
+      <img src="./images/hasher-drinks-stickers.gif" alt="pre-loader" />
+    </div>
+
+    <!-- TOP NAVIGATION MENU STARTS  -->
+    <header class="flex bg-white p-2 py-3 text-black items-center select-none">
+      <div>
+        <img
+          src="./images//undraw_refreshing_beverage_td3r.svg"
+          alt="Logo.png"
+          id="logo"
+          width="20px"
+          height="20px"
+          class="rounded-full border-slate-800 border-1 mx-3"
+        />
+      </div>
+      <!-- change occur -->
+      <div
+        class="font-semibold text-lg baloobhai"
+      >
+        My Power Diet -
+      </div>
+    </header>
+    <!-- TOP NAVIGATION MENU ENDS  -->
+
+    <main class="mb-20">
+
+      <!-- SECTION 1ST - ADD NEW FOOD ITEMS  -->
+  
+      <section class="rounded-lg shadow-lg bg-white my-4 mx-3 p-5">
+        <div class="flex justify-between">
+          <div class="flex justify-around flex-col pr-3">
+            <h1 class="text-xl font-semibold text-red-600">Food</h1>
+            <p class="pb-4 text-sm py-2">
+              Wanted to add new food material for your meal?
+            </p>
+            <p>
+              <a
+                href="addMaterial.html"
+                class="text-blue-500 font-semibold hover:underline hover:underline-offset-4"
+                >Add new</a
+              >
+            </p>
+          </div>
+          <div>
+            <img
+              src="images/additem.png"
+              alt="Add New Food Item (My Power Diet)"
+              width="150px"
+              height="150px"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2ST - ADD,EDIT AND DELETE DIET LIST ITEMS  -->
+
+      <section class="rounded-lg shadow-lg bg-white my-4 mx-3 p-5">
+        <div class="flex justify-between">
+          <div class="flex justify-around flex-col pr-3">
+            <h1 class="text-xl font-semibold text-red-600">Diet list</h1>
+            <p class="pb-4 text-sm py-2 tooltip">
+              Create Diffrent Meals as per your diet plan.
+            </p>
+
+            <p>
+              <a
+                href="./meal.html"
+                title="New Diet Meal"
+                class="text-blue-500 font-semibold hover:underline hover:underline-offset-4"
+                >View</a
+              >
+            </p>
+          </div>
+          <div>
+            <img
+              src="images/itemlist.png"
+              alt="Diet List - All Meals (My Power Diet)"
+              width="150px"
+              height="150px"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3RD - DAILY INTAKES - PROTEIN ,FAT, CARB AND CALORIES  -->
+
+      <section class="rounded-lg shadow-lg bg-white my-4 mx-3 p-5">
+        <div class="flex justify-between">
+          <div class="flex justify-around flex-col pr-3">
+            <h1 class="text-xl font-semibold text-red-600">Daily Intake</h1>
+            <p class="pb-4 text-sm py-2">
+              Set Your Daily intake goals and examine your diet.
+            </p>
+            <p>
+              <a
+                href="dailyintake.html"
+                title="Set Your Daily Diet Intakes"
+                class="text-blue-500 font-semibold hover:underline hover:underline-offset-4"
+                >Set Now</a
+              >
+            </p>
+          </div>
+          <div>
+            <img
+              src="images/uploadfile.png"
+              alt="Daily Intakes - protein ,fat ,carb,calories"
+              width="150px"
+              height="150px"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER NAVIGATION STARTS FROM HERE. -->
+    <footer
+      class="flex justify-evenly w-full bg-white items-center py-2 text-xl fixed bottom-0"
+    >
+      <div>
+        <a href="#" class="text-black active:text-red-600" title="Home page"
+          ><i class="fa-solid fa-house text-red-600"></i
+        ></a>
+      </div>
+      <div>
+        <a href="show_all_material.html" class="text-black active:text-red-600" title="All material page"
+          ><i class="fa-solid fa-utensils hover:text-red-600"></i
+        ></a>
+      </div>
+      <div class="rounded-full px-3 py-2 bg-red-500">
+        <a href="addMaterial.html" class="border-3 border-blue-400" title="Add New Material"
+          ><i class="fa-solid fa-plus fa-bounce text-white"></i
+        ></a>
+      </div>
+      <div>
+        <a href="result.html" class="text-black active:text-red-600" title="Result page"
+          ><i class="fa-solid fa-upload hover:text-red-600"></i
+        ></a>
+      </div>
+      <div>
+        <a href="" class="text-black active:text-red-600" title="Need help page"
+          ><i class="fa-solid fa-question hover:text-red-600"></i
+        ></a>
+      </div>
+    </footer>
+    <!-- FOOTER NAVIGATION ENDS HERE. -->
+
+
+    <!-- SCRIPT FOR REMOVING PRELOADER  -->
+    <script>
+      window.onload = () => {
+        document.getElementById("preloader").style.display = "none";
+      };
+    </script>
+
+  </body>
+</html>

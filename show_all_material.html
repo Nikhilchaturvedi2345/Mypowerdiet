@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TAILWIND  -->
+    <link rel="stylesheet" href="tailwind.css" />
+    <!-- CUSTOM CSS  -->
+    <link rel="stylesheet" href="customcss/all.css" />
+    <!-- FONT AWESOME CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- FAVICON  -->
+    <link rel="icon" href="/favicon_io/favicon-32x32.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <title>Show All Materials</title>
+  </head>
+  <body class="bg-slate-100 unselectable" id="productform">
+    <!-- PRELOADER  -->
+    <div id="preloader">
+      <img src="./images/hasher-drinks-stickers.gif" alt="" >
+    </div>
+
+    <!-- TOP NAVIGATION BAR START -->
+    <header class="flex bg-white p-2 text-black items-center">
+      <i class="fa-solid fa-arrow-left text-lg ps-2 text-black" 
+      onclick="history.back()"></i>
+      <div>
+        <img
+          src="./images/undraw_refreshing_beverage_td3r.svg"
+          alt="Logo.png"
+          id="logo (My Power Diet)"
+          width="40px"
+          height="40px"
+          class="rounded-full border-slate-800 border-1 mx-3"
+        />
+      </div>
+      <div
+        class="font-semibold text-lg select-none baloobhai"
+      >
+        My Power Diet -
+      </div>
+    </header>
+    <!-- TOP NAVIGATION BAR END -->
+
+    <main>
+
+      <!-- NOTHING ELEMENT AVAILABLE SECTION START-->
+      <section
+        id="nothingishere"
+        class="bg-white rounded-md mx-5 my-10 pb-16 flex flex-col justify-center items-center baloobhai"
+      >
+        <img
+          src="images/nothing.png"
+          alt="No items available"
+          class="w-2/4 h-2/4 m-auto py-4"
+        />
+        <h1 class="text-center text-xl font-semibold">Sorry</h1>
+        <p class="text-center">Nothing to show here.</p>
+        <button
+          class="bg-blue-600 text-white text-center py-3 px-5 rounded mt-6"
+          onclick="window.location.reload()"
+        >
+          Refresh Now
+        </button>
+      </section>
+      <!-- NOTHING ELEMENT AVAILABLE SECTION END-->
+
+      <!-- TOP HEADING  -->
+      <h1
+        class="py-4 px-4 font-semibold text-lg rounded bg-red-600 text-white mx-3 mt-4"
+        id="allitemstag"
+      >
+        Food Items
+      </h1>
+
+      <!-- ********** ALL ITEMS WERE ADDED HERE.***********  -->
+      <div id="additemshere" class="mb-20"></div>
+
+    </main>
+
+    <!-- MAIN NAVIGATION BAR START  -->
+    <footer
+    class="flex justify-evenly select-none w-full bg-white items-center py-2 text-xl fixed bottom-0"
+  >
+    <div>
+      <a href="index.html" class="text-black active:text-red-600"
+        ><i class="fa-solid fa-house hover:text-red-600"></i
+      ></a>
+    </div>
+    <div>
+      <a href="show_all_material.html" class="text-black active:text-red-600"
+        ><i class="fa-solid fa-utensils text-red-600"></i
+      ></a>
+    </div>
+    <div class="rounded-full px-3 py-2 bg-red-500">
+      <a href="addMaterial.html" ><i class="fa-solid fa-plus fa-bounce" style="color: #ffffff"></i
+      ></a>
+    </div>
+    <div>
+      <a href="result.html" class="text-black active:text-red-600"
+        ><i class="fa-solid fa-upload hover:text-red-600"></i
+      ></a>
+    </div>
+    <div>
+      <a href="" class="text-black active:text-red-600"
+        ><i class="fa-solid fa-question hover:text-red-600"></i
+      ></a>
+    </div>
+  </footer>
+    <!-- MAIN NAVIGATION BAR END  -->
+
+    <!-- SCRIPT FOR PRELOADER  -->
+  <script>
+    window.onload = ()=>{
+      document.getElementById("preloader").style.display = "none";
+    }
+  </script>
+  </body>
+  <script src="js/show_all_material.js"></script>
+</html>
